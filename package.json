@@ -1,0 +1,19 @@
+{
+  "name": "wsidraw",
+  "version": "1.0.0",
+  "description": "Drawing app MVP project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewSong1122/WSIDraw.git"
+  },
+  "author": "Andrew Song",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewSong1122/WSIDraw/issues"
+  },
+  "homepage": "https://github.com/AndrewSong1122/WSIDraw#readme"
+}
