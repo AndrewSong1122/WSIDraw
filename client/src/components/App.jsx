@@ -16,7 +16,6 @@ class App extends React.Component {
 
     getRandomPic() {
         $.get('http://localhost:3000/api/randompic', (photo) => {
-            console.log(photo);
             this.setState({photo});
         });
     }

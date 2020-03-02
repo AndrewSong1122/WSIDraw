@@ -10,6 +10,7 @@ class Paint extends React.Component {
         this.turnOnDraw = this.turnOnDraw.bind(this);
         this.turnOnErase = this.turnOnErase.bind(this);
         this.eraseAll = this.eraseAll.bind(this);
+        this.save = this.save.bind(this);
       }
 
     isPainting = false;
@@ -68,9 +69,18 @@ class Paint extends React.Component {
     }
 
     eraseAll() {
-      this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+      this.ctx.fillStyle = '#FFFFFF';
+      this.ctx.fillRect(0, 0, canvas.width, canvas.height);
       this.color = '#000000';
       this.lineWidth = 5;
+    }
+
+    save() {
+      const data = this.canvas.toDataURL('image/png');
+      const anchor = document.createElement('a');
+      anchor.href = data;
+      anchor.download = 'image.png';
+      anchor.click();
     }
 
     componentDidMount() {
@@ -79,6 +89,8 @@ class Paint extends React.Component {
         this.ctx.lineJoin = 'round';
         this.ctx.lineCap = 'round';
         this.ctx.lineWidth = 5;
+        this.ctx.fillStyle = '#FFFFFF';
+        this.ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
     render() {
@@ -113,6 +125,9 @@ class Paint extends React.Component {
               <div id="tools">
                 <button className="toolButton" onClick={this.turnOnErase} style={{backgroundColor: 'aliceblue'}}>Erase</button>
                 <button className="toolButton" onClick={this.eraseAll} style={{backgroundColor: 'aliceblue'}}>Clear</button>
+              </div>
+              <div id="etc">
+                <button className="toolButton" onClick={this.save} style={{backgroundColor: 'aliceblue'}}>Save your drawing!</button>
               </div>
             </div>
           </React.Fragment>
