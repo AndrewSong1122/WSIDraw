@@ -1,0 +1,17 @@
+body {
+    background-color: deepskyblue;
+}
+
+#canvas {
+    /* position: absolute; */
+    border-style: inset;
+    background-color: white;
+}
+
+.container {
+    margin: auto;
+}
+
+.toolButton {
+    margin: 5px;
+}

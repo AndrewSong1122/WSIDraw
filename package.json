@@ -4,6 +4,8 @@
   "description": "Drawing app MVP project",
   "main": "index.js",
   "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,23 @@
   "bugs": {
     "url": "https://github.com/AndrewSong1122/WSIDraw/issues"
   },
-  "homepage": "https://github.com/AndrewSong1122/WSIDraw#readme"
+  "homepage": "https://github.com/AndrewSong1122/WSIDraw#readme",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "node-fetch": "^2.6.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "babel-runtime": "^6.26.0",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.1.2"
+  }
 }
