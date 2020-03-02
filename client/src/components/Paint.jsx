@@ -30,12 +30,10 @@ class Paint extends React.Component {
       if (this.isPainting) {
         const { offsetX, offsetY } = nativeEvent;
         const offSetData = { offsetX, offsetY };
-        // Set the start and stop position of the paint event.
         const positionData = {
           start: { ...this.prevPos },
           stop: { ...offSetData },
         };
-        // Add the position to the line array
         this.line = this.line.concat(positionData);
         this.paint(this.prevPos, offSetData, this.color);
       }
@@ -47,11 +45,8 @@ class Paint extends React.Component {
 
       this.ctx.beginPath();
       this.ctx.strokeStyle = strokeStyle;
-      // Move the the prevPosition of the mouse
       this.ctx.moveTo(x, y);
-      // Draw a line to the current position of the mouse
       this.ctx.lineTo(offsetX, offsetY);
-      // Visualize the line using the strokeStyle
       this.ctx.stroke();
       this.prevPos = { offsetX, offsetY };
     }
@@ -99,11 +94,26 @@ class Paint extends React.Component {
                   onMouseMove={this.onMouseMove}>
                 </canvas>
               </div>
-              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#000000')} style={{backgroundColor: '#000000', color: '#FFFFFF'}}>Draw</button>
-              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#DC143C')} style={{backgroundColor: '#DC143C', color: '#FFFFFF'}}>Draw</button>
-              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#1E90FF')} style={{backgroundColor: '#1E90FF', color: '#FFFFFF'}}>Draw</button>
-              <button className="toolButton" onClick={this.turnOnErase} style={{backgroundColor: 'aliceblue'}}>Erase</button>
-              <button className="toolButton" onClick={this.eraseAll} style={{backgroundColor: 'aliceblue'}}>Clear</button>
+              <div id="colors">
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#DC143C')} style={{backgroundColor: '#DC143C', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#FFA500')} style={{backgroundColor: '#FFA500', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#FFD700')} style={{backgroundColor: '#FFD700', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#00FF7F')} style={{backgroundColor: '#00FF7F', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#1E90FF')} style={{backgroundColor: '#1E90FF', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#663399')} style={{backgroundColor: '#663399', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#000000')} style={{backgroundColor: '#000000', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#696969')} style={{backgroundColor: '#696969', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#DCDCDC')} style={{backgroundColor: '#DCDCDC', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#FFDEAD')} style={{backgroundColor: '#FFDEAD', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#8B4513')} style={{backgroundColor: '#8B4513', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#800000')} style={{backgroundColor: '#800000', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#FF69B4')} style={{backgroundColor: '#FF69B4', color: '#FFFFFF'}}>Draw</button>
+                <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#FFC0CB')} style={{backgroundColor: '#FFC0CB', color: '#FFFFFF'}}>Draw</button>
+              </div>
+              <div id="tools">
+                <button className="toolButton" onClick={this.turnOnErase} style={{backgroundColor: 'aliceblue'}}>Erase</button>
+                <button className="toolButton" onClick={this.eraseAll} style={{backgroundColor: 'aliceblue'}}>Clear</button>
+              </div>
             </div>
           </React.Fragment>
         );

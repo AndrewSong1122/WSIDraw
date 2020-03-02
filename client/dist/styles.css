@@ -5,14 +5,18 @@ body {
 }
 
 #canvas {
-    /* position: absolute; */
     border-style: inset;
     background-color: white;
 }
 
 .container {
+    text-align: center;
     margin: auto;
     display: inline-block;
+}
+
+.flex {
+    display: flex;
 }
 
 h1, h2, h3, h4 {

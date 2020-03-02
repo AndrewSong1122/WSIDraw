@@ -11,6 +11,7 @@ class App extends React.Component {
             showPhoto: false
         };
         this.getRandomPic = this.getRandomPic.bind(this);
+        this.revealPhoto = this.revealPhoto.bind(this);
     }
 
     getRandomPic() {
@@ -18,6 +19,10 @@ class App extends React.Component {
             console.log(photo);
             this.setState({photo});
         });
+    }
+
+    revealPhoto() {
+        this.setState({showPhoto: true});
     }
 
     componentDidMount() {
@@ -28,7 +33,7 @@ class App extends React.Component {
         return(
             <React.Fragment>
                 <Paint />
-                <Prompt showPhoto={this.state.showPhoto} photo={this.state.photo} />
+                <Prompt revealPhoto={this.revealPhoto} showPhoto={this.state.showPhoto} photo={this.state.photo} />
             </React.Fragment>);
     }
 }

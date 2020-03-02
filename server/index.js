@@ -11,7 +11,6 @@ global.fetch = fetch;
 
 const Unsplash = require('unsplash-js').default;
 const toJson = require("unsplash-js").toJson;
-// import Unsplash, { toJson } from "unsplash-js";
 const api = require('../config.js');
 const unsplash = new Unsplash({ accessKey: api.UNSPLASH_ACCESS_KEY});
 

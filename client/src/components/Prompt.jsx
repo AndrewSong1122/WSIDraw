@@ -1,19 +1,22 @@
 import React from 'react';
-import $ from 'jquery';
 
 class Prompt extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    // style={{width: "50%"}}
     render() {
+        if(!this.props.showPhoto) {
+            var content = (<button onClick={this.props.revealPhoto}>Reveal Photo!</button>);
+        } else {
+            var content = (<img width="650px" src={this.props.photo.photoregular}></img>);
+        }
+
         return(
-            <div style={{float: 'right', marginRight: '50px'}} className="container">
-                <h2>Try drawing this!</h2>
-                <h3>{this.props.photo.prompt}</h3>
-                <button>Reveal Photo!</button>
-                <img width="650px" src={this.props.photo.photoregular}></img>
+            <div className="container">
+                <h1>Try drawing this!</h1>
+                <h2>{this.props.photo.prompt}</h2>
+                {content}
             </div>
         );
     }
