@@ -1,19 +1,35 @@
 import React from 'react';
 import $ from 'jquery';
 import Paint from './Paint.jsx';
+import Prompt from './Prompt.jsx';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            photo: {},
+            showPhoto: false
+        };
+        this.getRandomPic = this.getRandomPic.bind(this);
+    }
+
+    getRandomPic() {
+        $.get('http://localhost:3000/api/randompic', (photo) => {
+            console.log(photo);
+            this.setState({photo});
+        });
     }
 
     componentDidMount() {
-        
+        this.getRandomPic();
     }
 
     render() {
-        return(<Paint />);
+        return(
+            <React.Fragment>
+                <Paint />
+                <Prompt showPhoto={this.state.showPhoto} photo={this.state.photo} />
+            </React.Fragment>);
     }
 }
 

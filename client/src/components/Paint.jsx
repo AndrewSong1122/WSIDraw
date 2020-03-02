@@ -4,13 +4,6 @@ class Paint extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     canvas: null,
-        //     ctx: null,
-        //     isPainting: false,
-        //     line: [],
-        //     prevPos: { offsetX: 0, offsetY: 0 }
-        // };
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
@@ -97,17 +90,21 @@ class Paint extends React.Component {
         return(
           <React.Fragment>
             <div className="container">
-              <canvas id="canvas" ref="canvas" width={1000}
-                height={800}
-                onMouseDown={this.onMouseDown}
-                onMouseLeave={this.endPaintEvent}
-                onMouseUp={this.endPaintEvent}
-                onMouseMove={this.onMouseMove}>
-              </canvas>
+              <div>
+                <canvas id="canvas" ref="canvas" width={1000}
+                  height={800}
+                  onMouseDown={this.onMouseDown}
+                  onMouseLeave={this.endPaintEvent}
+                  onMouseUp={this.endPaintEvent}
+                  onMouseMove={this.onMouseMove}>
+                </canvas>
+              </div>
+              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#000000')} style={{backgroundColor: '#000000', color: '#FFFFFF'}}>Draw</button>
+              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#DC143C')} style={{backgroundColor: '#DC143C', color: '#FFFFFF'}}>Draw</button>
+              <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#1E90FF')} style={{backgroundColor: '#1E90FF', color: '#FFFFFF'}}>Draw</button>
+              <button className="toolButton" onClick={this.turnOnErase} style={{backgroundColor: 'aliceblue'}}>Erase</button>
+              <button className="toolButton" onClick={this.eraseAll} style={{backgroundColor: 'aliceblue'}}>Clear</button>
             </div>
-            <button className="toolButton" onClick={this.turnOnDraw.bind(null, '#000000')}>Draw</button>
-            <button className="toolButton" onClick={this.turnOnErase}>Erase</button>
-            <button className="toolButton" onClick={this.eraseAll}>Clear</button>
           </React.Fragment>
         );
     }
