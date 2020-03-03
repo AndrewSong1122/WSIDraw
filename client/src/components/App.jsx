@@ -31,8 +31,13 @@ class App extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <Paint />
-                <Prompt revealPhoto={this.revealPhoto} showPhoto={this.state.showPhoto} photo={this.state.photo} />
+                <div class="flex">
+                    <Paint />
+                    <Prompt revealPhoto={this.revealPhoto} showPhoto={this.state.showPhoto} photo={this.state.photo} />
+                </div>
+                {/* <div>
+                    <h1>Here's what others drew!</h1>
+                </div> */}
             </React.Fragment>);
     }
 }

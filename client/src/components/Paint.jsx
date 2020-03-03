@@ -98,8 +98,9 @@ class Paint extends React.Component {
           <React.Fragment>
             <div className="container">
               <div>
-                <canvas id="canvas" ref="canvas" width={1000}
-                  height={800}
+                <canvas id="canvas" ref="canvas"
+                  width={750}
+                  height={750}
                   onMouseDown={this.onMouseDown}
                   onMouseLeave={this.endPaintEvent}
                   onMouseUp={this.endPaintEvent}

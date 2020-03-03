@@ -11,7 +11,7 @@ class Prompt extends React.Component {
         } else {
             var content = (
                 <React.Fragment>
-                    <img width="650px" src={this.props.photo.photoregular}></img>
+                    <img style={{maxWidth: "900px", maxHeight: "700px"}} src={this.props.photo.photoregular}></img>
                     <h4>{`Photo courtesy of `}<a href={this.props.photo.userprofile} target="_blank">{`${this.props.photo.username} @ Unsplash`}</a></h4>
                 </React.Fragment>
             );
@@ -19,7 +19,7 @@ class Prompt extends React.Component {
 
         return(
             <div className="container">
-                <h1>Try drawing this!</h1>
+                <h2>Try drawing this!</h2>
                 <h2>{this.props.photo.prompt}</h2>
                 {content}
             </div>
