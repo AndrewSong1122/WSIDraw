@@ -12,6 +12,7 @@ class App extends React.Component {
         };
         this.getRandomPic = this.getRandomPic.bind(this);
         this.revealPhoto = this.revealPhoto.bind(this);
+        this.newPhoto = this.newPhoto.bind(this);
     }
 
     getRandomPic() {
@@ -24,6 +25,15 @@ class App extends React.Component {
         this.setState({showPhoto: true});
     }
 
+    newPhoto() {
+        $.get('http://localhost:3000/api/randompic', (photo) => {
+            this.setState({
+                photo,
+                showPhoto: false
+            });
+        });
+    }
+
     componentDidMount() {
         this.getRandomPic();
     }
@@ -31,9 +41,9 @@ class App extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <div class="flex">
+                <div className="flex">
                     <Paint />
-                    <Prompt revealPhoto={this.revealPhoto} showPhoto={this.state.showPhoto} photo={this.state.photo} />
+                    <Prompt newPhoto={this.newPhoto} revealPhoto={this.revealPhoto} showPhoto={this.state.showPhoto} photo={this.state.photo} />
                 </div>
                 {/* <div>
                     <h1>Here's what others drew!</h1>

@@ -14,6 +14,28 @@ const toJson = require("unsplash-js").toJson;
 const api = require('../config.js');
 const unsplash = new Unsplash({ accessKey: api.UNSPLASH_ACCESS_KEY});
 
+const aws = require('aws-sdk');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+
+const s3 = new aws.S3({
+  accessKeyId: api.AWSAccessKeyId,
+  secretAccessKey: api.AWSSecretKey
+});
+
+var upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'wsidraw',
+        key: function (req, file, cb) {
+            console.log(file);
+            var name = file.originalname;
+            var type = name.substring(name.lastIndexOf('.'), name.length);
+            cb(null, req.params.id + type);
+        }
+    })
+});
+
 app.get('/api/randompic', (req, res) => {
   unsplash.photos.getRandomPhoto()
   .catch((err) => {
@@ -32,6 +54,10 @@ app.get('/api/randompic', (req, res) => {
       photothumb: json.urls.thumb
     });
   });
+});
+
+app.post('/api/upload/:id', upload.array('submission',1), function (req, res, next) {
+    res.status(201).end();
 });
 
 app.listen(PORT, () => {
