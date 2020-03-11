@@ -47,16 +47,12 @@ app.get('/api/randompic', (req, res) => {
       prompt: json.alt_description,
       username: json.user.username,
       userprofile: json.user.links.html,
-      photoraw: json.urls.raw,
-      photofull: json.urls.full,
-      photoregular: json.urls.regular,
-      photosmall: json.urls.small,
-      photothumb: json.urls.thumb
+      photourl: json.urls.regular
     });
   });
 });
 
-app.post('/api/upload/:id', upload.array('submission',1), function (req, res, next) {
+app.post('/api/upload/:id/:description', upload.array('submission',1), function (req, res, next) {
     res.status(201).end();
 });
 

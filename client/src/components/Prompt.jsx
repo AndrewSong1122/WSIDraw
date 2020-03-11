@@ -27,11 +27,11 @@ class Prompt extends React.Component {
         } else {
             var content = (
                 <React.Fragment>
-                    <img style={{maxWidth: "900px", maxHeight: "600px"}} src={this.props.photo.photoregular}></img>
+                    <img style={{maxWidth: "900px", maxHeight: "600px"}} src={this.props.photo.photourl}></img>
                     <h3>{this.props.photo.prompt}</h3>
                     <h5>{`Photo courtesy of `}<a href={this.props.photo.userprofile} target="_blank">{`${this.props.photo.username} @ Unsplash`}</a></h5>
                     <h3>Submit your drawing!</h3>
-                    <form target="hidden-iframe" encType="multipart/form-data" action={`/api/upload/${this.state.id}`} method="post">
+                    <form target="hidden-iframe" encType="multipart/form-data" action={`/api/upload/${this.state.id}/${this.props.photo.prompt}`} method="post">
                         <input name="submission" id="image-file" type="file" accept="image/*"/>
                         <input onClick={this.newId.bind(this)} type="submit"></input>
                     </form>
