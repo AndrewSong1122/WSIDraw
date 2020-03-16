@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     getRandomPic() {
-        $.get('http://localhost:3000/api/randompic', (photo) => {
+        $.get('http://13.52.188.7:3000/api/randompic', (photo) => {
             this.setState({photo});
         });
     }
@@ -26,7 +26,7 @@ class App extends React.Component {
     }
 
     newPhoto() {
-        $.get('http://localhost:3000/api/randompic', (photo) => {
+        $.get('http://13.52.188.7:3000/api/randompic', (photo) => {
             this.setState({
                 photo,
                 showPhoto: false
