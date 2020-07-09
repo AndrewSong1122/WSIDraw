@@ -19,23 +19,10 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/react'],
           plugins: [
             '@babel/plugin-proposal-object-rest-spread',
-            '@babel/plugin-proposal-class-properties',
-            // ["transform-runtime",
-            //   {
-            //     "polyfill": false,
-            //     "regenerator": true
-            //   }
-            // ]
+            '@babel/plugin-proposal-class-properties'
           ]
         }
-      }, 
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     { loader: 'style-loader' },
-      //     { loader: 'css-loader'}
-      //   ]
-      // }
+      }
     ]
   }
 };
