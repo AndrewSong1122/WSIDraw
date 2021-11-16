@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AndrewSong1122/WSIDraw#readme",
   "dependencies": {
-    "aws-sdk": "^2.636.0",
+    "aws-sdk": "^2.814.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
